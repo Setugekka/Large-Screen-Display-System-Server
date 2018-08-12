@@ -10,5 +10,5 @@ class ProdConfig(Config):
 
 class DevConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = ''
-    SECRET_KEY = ''
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:0000@116.196.90.212:3306/LSDS'
+    SECRET_KEY = 'you-will-never-guess'

@@ -4,17 +4,25 @@ from flask_principal import identity_loaded, UserNeed, RoleNeed
 from config import DevConfig
 from extensions import login_manager, principals
 from flask_login import current_user
-from models import *
+from models import db
 from RestfulApi.city import city_blueprint
+from RestfulApi.p_expert import p_expert_blueprint
+from RestfulApi.p_repair import p_repair_blueprint
+from RestfulApi.p_manager import p_manager_blueprint
+from RestfulApi.p import p_blueprint
 
 def create_app(object_name):
     app = Flask(__name__)
     app.config.from_object(DevConfig)
     login_manager.init_app(app)
     principals.init_app(app)
-    # db.init_app(app)
+    db.init_app(app)
     #模块注册
     app.register_blueprint(city_blueprint)
+    app.register_blueprint(p_expert_blueprint)
+    app.register_blueprint(p_manager_blueprint)
+    app.register_blueprint(p_repair_blueprint)
+    app.register_blueprint(p_blueprint)
     @identity_loaded.connect_via(app)
     def on_identity_loaded(sender, identity):
         identity.user = current_user
