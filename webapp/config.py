@@ -10,5 +10,6 @@ class ProdConfig(Config):
 
 class DevConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = ''
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:0000@116.196.90.212/LSDS'
+    SQLALCHEMY_TRACK_MODIFICATIONS=True
     SECRET_KEY = ''
