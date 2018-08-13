@@ -7,3 +7,4 @@ city_blueprint = Blueprint(
 @city_blueprint.route('/',methods=('GET', 'POST'))
 def hello():
     return "hello world"
+
