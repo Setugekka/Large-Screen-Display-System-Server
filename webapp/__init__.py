@@ -10,7 +10,9 @@ from RestfulApi.p_expert import p_expert_blueprint
 from RestfulApi.p_repair import p_repair_blueprint
 from RestfulApi.p_manager import p_manager_blueprint
 from RestfulApi.p import p_blueprint
-
+from RestfulApi.m_equipment import m_equipment_blueprint
+from RestfulApi.m_stuff import m_stuff_blueprint
+from RestfulApi.m_material import m_material_blueprint
 def create_app(object_name):
     app = Flask(__name__)
     app.config.from_object(DevConfig)
@@ -23,6 +25,9 @@ def create_app(object_name):
     app.register_blueprint(p_manager_blueprint)
     app.register_blueprint(p_repair_blueprint)
     app.register_blueprint(p_blueprint)
+    app.register_blueprint(m_equipment_blueprint)
+    app.register_blueprint(m_stuff_blueprint)
+    app.register_blueprint(m_material_blueprint)
     @identity_loaded.connect_via(app)
     def on_identity_loaded(sender, identity):
         identity.user = current_user
