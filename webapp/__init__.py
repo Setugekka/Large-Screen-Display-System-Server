@@ -17,6 +17,7 @@ from RestfulApi.m_material import m_material_blueprint
 from RestfulApi.generator import generator_blueprint
 from RestfulApi.repaircar import repaircar_blueprint
 from RestfulApi.vehicles import vehicles_blueprint
+from RestfulApi.urgent_material import urgentmaterial_bluprint
 
 
 def create_app(object_name):
@@ -38,6 +39,7 @@ def create_app(object_name):
     app.register_blueprint(generator_blueprint)
     app.register_blueprint(repaircar_blueprint)
     app.register_blueprint(vehicles_blueprint)
+    app.register_blueprint(urgentmaterial_bluprint)
     @identity_loaded.connect_via(app)
     def on_identity_loaded(sender, identity):
         identity.user = current_user
