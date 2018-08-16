@@ -11,6 +11,9 @@ from RestfulApi.p_expert import p_expert_blueprint
 from RestfulApi.p_repair import p_repair_blueprint
 from RestfulApi.p_manager import p_manager_blueprint
 from RestfulApi.p import p_blueprint
+from RestfulApi.m_equipment import m_equipment_blueprint
+from RestfulApi.m_stuff import m_stuff_blueprint
+from RestfulApi.m_material import m_material_blueprint
 from RestfulApi.generator import generator_blueprint
 from RestfulApi.repaircar import repaircar_blueprint
 from RestfulApi.vehicles import vehicles_blueprint
@@ -30,6 +33,9 @@ def create_app(object_name):
     app.register_blueprint(p_manager_blueprint)
     app.register_blueprint(p_repair_blueprint)
     app.register_blueprint(p_blueprint)
+    app.register_blueprint(m_equipment_blueprint)
+    app.register_blueprint(m_stuff_blueprint)
+    app.register_blueprint(m_material_blueprint)
     app.register_blueprint(generator_blueprint)
     app.register_blueprint(repaircar_blueprint)
     app.register_blueprint(vehicles_blueprint)
