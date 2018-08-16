@@ -3,11 +3,22 @@
 from flask import Blueprint,jsonify
 from webapp.models import db,Repaircar
 from sqlalchemy import func
+
+def dataFormatter(rec):
+    return {'Id':rec.Id,'Department':rec.Department,'License_num':rec.License_num,'Car_type':rec.Car_type,'Brand':rec.Brand,
+            'Purchase_date':rec.Purchase_date,'Oil_type':rec.Oil_type,'Contact':rec.Contact,'Phone':rec.Phone,'City':rec.City}
+
 repaircar_blueprint=Blueprint(
     'repaircar',
     __name__,
     url_prefix="/repaircar"
 )
+#返回指定城市的所有记录
+@repaircar_blueprint.route('/getbyCity/<city>',methods=('GET','POST'))
+def getbyCity(city):
+    res = db.session.query(Repaircar).filter(Repaircar.City==city).all()
+    res_list=map(dataFormatter,res)
+    return jsonify({'data':res_list})
 #返回总记录数
 @repaircar_blueprint.route('/count',methods=('GET','POST'))
 def count():
