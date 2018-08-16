@@ -36,6 +36,42 @@ class p_manager(db.Model):
     Health=db.Column(db.String(255))
     City=db.Column(db.String(255))
 
+class m_equipment(db.Model):
+    Id=db.Column(db.String(11), primary_key=True)
+    Name=db.Column(db.String(255))
+    Num=db.Column(db.Numeric)
+    Unit=db.Column(db.String(255))
+    Type=db.Column(db.String(255))
+    Model=db.Column(db.String(255))
+    Standard=db.Column(db.String(255))
+    City=db.Column(db.String(255))
+
+class m_urgent_stuff(db.Model):
+    Id=db.Column(db.String(11), primary_key=True)
+    Name=db.Column(db.String(255))
+    Type = db.Column(db.String(255))
+    Num=db.Column(db.Numeric)
+    Unit=db.Column(db.String(255))
+    Position=db.Column(db.String(255))
+    Time=db.Column(db.String(255))
+    Keeper = db.Column(db.String(255))
+    Phone = db.Column(db.String(255))
+    City=db.Column(db.String(255))
+
+
+class m_urgent_material(db.Model):
+    Id = db.Column(db.String(11), primary_key=True)
+    Name = db.Column(db.String(255))
+    Type = db.Column(db.String(255))
+    Num = db.Column(db.Numeric)
+    Unit = db.Column(db.String(255))
+    Position = db.Column(db.String(255))
+    Time = db.Column(db.String(255))
+    Keeper = db.Column(db.String(255))
+    Phone = db.Column(db.String(255))
+    City = db.Column(db.String(255))
+
+
 class Generator(db.Model):
     __tablename__='m_generator'
     Id=db.Column(db.String(11),primary_key=True)
