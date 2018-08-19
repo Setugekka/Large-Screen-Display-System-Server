@@ -99,3 +99,4 @@ class m_urgent_material(db.Model):
     Phone=db.Column(db.String(255))
     City=db.Column(db.String(255))
 
+
