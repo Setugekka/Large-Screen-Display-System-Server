@@ -7,6 +7,36 @@ m_material_blueprint = Blueprint(
     __name__,
     url_prefix="/m_material"
 )
+def dataFormatter(rec):
+    return {'Id':rec['Id'],'Type':rec['Type'],'Name':rec['Name'],'Num':rec['Num'],'Position':rec['Position'],'Time':rec['Time'],'Keeper':rec['Keeper'],'Unit':rec['Unit'],'Phone':rec['Phone'],'City':rec['City']}
+def trans_result_from_data(i):
+    if i.Num:
+        data = {
+            "Id": i.Id,
+            "Name": i.Name,
+            "Num": float(i.Num),
+            "Unit": i.Unit,
+            "Type": i.Type,
+            "Position": i.Position,
+            "Time": i.Time,
+            "Keeper": i.Keeper,
+            "City": i.City,
+            "Phone": i.Phone
+        }
+    else:
+        data = {
+            "Id": i.Id,
+            "Name": i.Name,
+            "Num": float(0),
+            "Unit": i.Unit,
+            "Type": i.Type,
+            "Position": i.Position,
+            "Time": i.Time,
+            "Keeper": i.Keeper,
+            "City": i.City,
+            "Phone": i.Phone
+        }
+    return data
 @m_material_blueprint.route('/get_all',methods=('GET', 'POST'))
 def get_all():
     city = request.args.get('city')
@@ -34,31 +64,16 @@ def get_all():
          }],
     }
     return response(jsonify(data_for_tree))
-
-
-def trans_result_from_data(i):
-    if i.Num:
-        data = {
-            "Id": i.Id,
-            "Name": i.Name,
-            "Num": float(i.Num),
-            "Unit": i.Unit,
-            "Type": i.Type,
-            "Position": i.Position,
-            "Time": i.Time,
-            "Keeper": i.Keeper,
-            "City": i.City,
-        }
+@m_material_blueprint.route('/get_data_by_city/<city>',methods=('GET', 'POST'))
+def get_data_by_city(city):
+    print(city)
+    if city == '':
+        city = "all"
+        data = m_urgent_material.query.all()
     else:
-        data = {
-            "Id": i.Id,
-            "Name": i.Name,
-            "Num": float(0),
-            "Unit": i.Unit,
-            "Type": i.Type,
-            "Position": i.Position,
-            "Time": i.Time,
-            "Keeper": i.Keeper,
-            "City": i.City,
-        }
-    return data
+        data = m_urgent_material.query.filter(m_urgent_material.City == city).all()
+    result = map(trans_result_from_data, data)
+    result_list = map(dataFormatter,result)
+    print(result)
+    return response(jsonify({'data':result_list}))
+

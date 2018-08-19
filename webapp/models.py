@@ -59,18 +59,6 @@ class m_urgent_stuff(db.Model):
     City=db.Column(db.String(255))
 
 
-class m_urgent_material(db.Model):
-    Id = db.Column(db.String(11), primary_key=True)
-    Name = db.Column(db.String(255))
-    Type = db.Column(db.String(255))
-    Num = db.Column(db.Numeric)
-    Unit = db.Column(db.String(255))
-    Position = db.Column(db.String(255))
-    Time = db.Column(db.String(255))
-    Keeper = db.Column(db.String(255))
-    Phone = db.Column(db.String(255))
-    City = db.Column(db.String(255))
-
 
 class Generator(db.Model):
     __tablename__='m_generator'
@@ -95,6 +83,19 @@ class Repaircar(db.Model):
     Purchase_date=db.Column(db.String(255))
     Oil_type=db.Column(db.String(255))
     Contact=db.Column(db.String(255))
+    Phone=db.Column(db.String(255))
+    City=db.Column(db.String(255))
+
+class m_urgent_material(db.Model):
+    __tablename__='m_urgent_material'
+    Id = db.Column(db.String(11), primary_key=True)
+    Name=db.Column(db.String(255))
+    Type=db.Column(db.String(255))
+    Num=db.Column(db.Numeric)
+    Unit=db.Column(db.String(255))
+    Position=db.Column(db.String(255))
+    Time=db.Column(db.String(255))
+    Keeper=db.Column(db.String(255))
     Phone=db.Column(db.String(255))
     City=db.Column(db.String(255))
 

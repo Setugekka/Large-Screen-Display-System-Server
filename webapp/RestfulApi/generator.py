@@ -26,6 +26,7 @@ def getAll():
 def getbyCity(city):
     res = db.session.query(Generator).filter(Generator.City==city).all()
     res_list=map(dataFormatter,res)
+    print(res_list)
     return jsonify({'data':res_list})
 
 #返回发电车总数
