@@ -1,3 +1,4 @@
+#encoding:utf-8
 from flask import Blueprint, jsonify,request
 from . import response
 from webapp.models import p_repair,db
@@ -40,5 +41,7 @@ def distribution_by_major_city():
     for i in data:
         class_list.append(i[0])
         value_list.append(i[1])
-    return response(jsonify({"property": "p_repair_distribution_by_major_city", "city": city, "class_list": class_list,"value_list":value_list}))
+    # return response(jsonify({"property": "p_repair_distribution_by_major_city", "city": city, "class_list": class_list,"value_list":value_list}))
+    return response(jsonify({"property": "p_repair_distribution_by_major_city", "city": city, "class_list": ['输电运检','变电','变电检修','电气试验','交通运输', '变电二次', '配电' ,'带电' ,'生产经理' ,'配电电缆'],"value_list":[10,30,45,25,66,27,40,35,27,22]}))
+
 
