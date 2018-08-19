@@ -97,3 +97,5 @@ class Repaircar(db.Model):
     Contact=db.Column(db.String(255))
     Phone=db.Column(db.String(255))
     City=db.Column(db.String(255))
+
+

@@ -8,6 +8,26 @@ generator_blueprint=Blueprint(
     __name__,
     url_prefix="/generator"
 )
+
+def dataFormatter(rec):
+    return {'Id':rec.Id,'Department':rec.Department,'Type':rec.Type,'Capacity':rec.Capacity,'Date_Production':rec.Date_Production,
+            'Factory':rec.Factory,'Contact':rec.Contact,'Phone':rec.Phone,'Position':rec.Position,'Condition':rec.Condition,'City':rec.City}
+
+
+#返回所有记录
+@generator_blueprint.route('/getAll',methods=('GET','POST'))
+def getAll():
+    res = db.session.query(Generator).all()
+    res_list=map(dataFormatter,res)
+    return jsonify({'data':res_list})
+
+#返回指定城市的所有记录
+@generator_blueprint.route('/getbyCity/<city>',methods=('GET','POST'))
+def getbyCity(city):
+    res = db.session.query(Generator).filter(Generator.City==city).all()
+    res_list=map(dataFormatter,res)
+    return jsonify({'data':res_list})
+
 #返回发电车总数
 @generator_blueprint.route('/count',methods=('GET','POST'))
 def count():
@@ -53,3 +73,4 @@ def count_capacity():
         else:
             res_array1[4]+=item[1]
     return jsonify({'data': res_array1,'cap_dist':res_array2})
+
