@@ -18,6 +18,10 @@ from RestfulApi.generator import generator_blueprint
 from RestfulApi.repaircar import repaircar_blueprint
 from RestfulApi.vehicles import vehicles_blueprint
 from RestfulApi.urgent_material import urgentmaterial_bluprint
+from RestfulApi.organization import organization_blueprint
+from RestfulApi.institutions import institutions_blueprint
+from RestfulApi.plan import plan_blueprint
+from RestfulApi.training import training_blueprint
 
 
 def create_app(object_name):
@@ -40,6 +44,10 @@ def create_app(object_name):
     app.register_blueprint(repaircar_blueprint)
     app.register_blueprint(vehicles_blueprint)
     app.register_blueprint(urgentmaterial_bluprint)
+    app.register_blueprint(organization_blueprint)
+    app.register_blueprint(institutions_blueprint)
+    app.register_blueprint(plan_blueprint)
+    app.register_blueprint(training_blueprint)
     @identity_loaded.connect_via(app)
     def on_identity_loaded(sender, identity):
         identity.user = current_user
