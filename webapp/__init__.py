@@ -5,8 +5,9 @@ from config import DevConfig
 from extensions import login_manager, principals
 from flask_login import current_user
 from models import *
+from socket import socketio
 from flask_cors import CORS
-from RestfulApi.city import city_blueprint
+from RestfulApi.dev import dev_blueprint
 from RestfulApi.p_expert import p_expert_blueprint
 from RestfulApi.p_repair import p_repair_blueprint
 from RestfulApi.p_manager import p_manager_blueprint
@@ -27,8 +28,9 @@ def create_app(object_name):
     db.init_app(app)
     login_manager.init_app(app)
     principals.init_app(app)
+    socketio.init_app(app)
     #模块注册
-    app.register_blueprint(city_blueprint)
+    app.register_blueprint(dev_blueprint)
     app.register_blueprint(p_expert_blueprint)
     app.register_blueprint(p_manager_blueprint)
     app.register_blueprint(p_repair_blueprint)
