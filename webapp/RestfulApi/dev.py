@@ -6,22 +6,22 @@ dev_blueprint = Blueprint(
     __name__,
     url_prefix="/"
 )
-@dev_blueprint.route('/hello',methods=('GET', 'POST'))
+@dev_blueprint.route('hello',methods=('GET', 'POST'))
 def hello():
     return "hello world"
 
-@dev_blueprint.route('/socket')
+@dev_blueprint.route('socket')
 def index():
-    return render_template('index.html')
+    return render_template('dev/index.html')
 
-@dev_blueprint.route('/p_o_s')
+@dev_blueprint.route('p_o_s')
 def pos_test():
     city=request.args.get('city')
     value=request.args.get('value')
     es.update_option_public_option_status(city,value)
     return 'success'
 
-@dev_blueprint.route('/s_m')
+@dev_blueprint.route('s_m')
 def sm_test():
     city=request.args.get('city')
     value=request.args.get('value')

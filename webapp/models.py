@@ -1,6 +1,62 @@
 # for sql
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import AnonymousUserMixin, UserMixin
+
 db=SQLAlchemy()
+class users(UserMixin, db.Model):
+    # username = db.StringField(max_length=100, primary_key=True)
+    userid=db.Column(db.Integer,primary_key=True)
+    username = db.Column(db.String(45))
+    password = db.Column(db.String(45))
+
+    def __init__(self, **kwargs):
+        super(users, self).__init__(**kwargs)
+    # def can(self, permissions):
+    #     result = users_roles.query.filter_by(user_name=self.username).first()
+    #     return result is not None and \
+    #            result.permissions <= permissions
+
+    # def is_administrator(self):
+    #     return self.can(Permission.administrator)
+
+    # roles = db.relationship(
+    #         'Role',
+    #         secondary=roles,
+    #         backref=db.backref('users', lazy='dynamic')
+    # )
+
+    def set_password(self, password):
+        self.password = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
+
+    def is_authenticated(self):
+        if isinstance(self, AnonymousUserMixin):
+            return False
+        else:
+            return True
+
+    def is_active(self):
+        return True
+
+    def is_anonymous(self):
+        if isinstance(self, AnonymousUserMixin):
+            return True
+        else:
+            return False
+
+    def get_id(self):
+        return unicode(self.userid)
+
+class log(db.Model):
+    ID=db.Column(db.Integer,primary_key=True)
+    UserID=db.Column(db.Integer)
+    Operation=db.Column(db.String(255))
+    Note=db.Column(db.String(255))
+    Time=db.Column(db.DateTime)
+
 class p_expert(db.Model):
     Id=db.Column(db.String(11), primary_key=True)
     Classification=db.Column(db.String(255))
@@ -58,8 +114,6 @@ class m_urgent_stuff(db.Model):
     Phone = db.Column(db.String(255))
     City=db.Column(db.String(255))
 
-
-
 class Generator(db.Model):
     __tablename__='m_generator'
     Id=db.Column(db.String(11),primary_key=True)
@@ -73,6 +127,7 @@ class Generator(db.Model):
     Position=db.Column(db.String(255))
     Condition=db.Column(db.String(255))
     City=db.Column(db.String(255))
+
 class Repaircar(db.Model):
     __tablename__='m_repaircar'
     Id = db.Column(db.String(11), primary_key=True)

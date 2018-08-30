@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="icon" href="images/favicon.ico" type="image/ico" />
+
+    <title>停电信息报送系统</title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+	
+    <!-- bootstrap-progressbar -->
+    <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              <div class="profile_pic">
+                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+              </div>
+              <div class="profile_info">
+                <span>欢迎登录,</span>
+                <h2>测试用户Demo</h2>
+              </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+               
+                <ul class="nav side-menu">
+                  <li><a href="index - 1.html"><i class="fa fa-home"></i> 首页 </a>
+                  <li><a><i class="fa fa-home"></i> 基础数据管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="UserInformation.html"> 用户信息管理 </a></li>
+                      <li><a href="page_403.html"> 组织机构管理 </a></li>
+                      <li><a href="page_403.html"> 设备线路管理 </a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-edit"></i> 接口数据管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="SynchronizationOperatation.html"> 数据同步 </a></li>
+                      <li><a href="page_403.html"> 接口同步日志 </a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-desktop"></i> 停电信息管理 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="AddExcel.html"> Excel 导入</a></li>
+                      <li><a href="SingleAdd.html"> 单条添加 </a> </li>
+                      <li><a href="Maintain.html"> 停电信息维护与报送 </a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-table"></i> 停电信息报表 <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                       <li><a href="page_403.html"> 月度对比统计 </a></li>
+                       <li><a href="ReportByYear.html"> 年度对比统计 </a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              <div class="menu_section">
+                <h3> 其它页面 </h3>
+                <ul class="nav side-menu">
+                  <li><a href="page_403.html"><i class="fa fa-bug"></i> 403 页面 </span></a>
+                  <li><a href="page_404.html"><i class="fa fa-bug"></i> 404 页面 </span></a>
+                  <li><a href="page_500.html"><i class="fa fa-bug"></i> 500 页面 </span></a>
+                </ul>
+              </div>
+
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              
+              <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+
+              </div>
+              
+              <div style="position: absolute;left: 15%;top: 3px">
+                <img src="images/nav_img.png" style="height: 50px;width: 51px;">
+                <img src="images/logo-2.png" style=";height: 45px;width:95px;">
+              </div>
+              <div style="top:6px;font-size:30px;color: #000;text-align: center;left:23%; position: absolute;">
+                <font style="font-weight: 1000;font-family:'黑体';letter-spacing:1px">
+                  停电信息报送系统
+                </font>
+            </div>
+              
+            <div>
+
+               
+              <ul class="nav navbar-nav navbar-right">
+
+                <li class="">
+
+                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                    <img src="images/img.jpg" alt="">测试用户Demo
+                    <span class=" fa fa-angle-down"></span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-usermenu pull-right">
+                    <li><a href="javascript:;"> 用户信息</a></li>
+                    <li>
+                      <a href="javascript:;" data-toggle="modal" data-target="#myModal">
+                        <span class="badge bg-red pull-right">重要</span>
+                        <span>修改密码</span>
+                      </a>
+                    </li>
+                    <li><a href="javascript:;" data-toggle="modal" data-target="#myModal2"> 暂时锁定</a></li>
+                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> 退出登录</a></li>
+                  </ul>
+                </li>
+
+
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">密码修改</h4>
+            </div>
+              <div class="col-md-12 col-xs-12">
+                  
+                  <div class="x_content">
+                    <form class="form-horizontal form-label-left">
+
+                      <div class="form-group" style="margin-top: 15px">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">请输入密码</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="password" class="form-control" placeholder ="密码由6-20位非'*' . '/' . '\' . '{' . '}' 组成的字符串构成">
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">请再次输入密码</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input type="password" class="form-control" placeholder ="请再次输入密码">
+                        </div>
+                      </div>
+                      
+
+
+                    </form>
+                  </div>
+              </div>
+            <div class="modal-footer">
+                <label style="margin-right: 30px"><font style="color: rgb(255,1,1);">字符串非法</font></label>
+                <label style="margin-right: 30px"><font style="color: rgb(26,187,156);">修改成功</font></label>
+                <label style="margin-right: 30px"><font style="color: rgb(255,1,1);">两次输入密码不同</font></label>
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">提交更改</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+
+             <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <h4 class="modal-title" id="myModalLabel">暂时锁定</h4>
+            </div>
+              <div class="col-md-12 col-xs-12">
+                  
+                  <div class="x_content">
+                    <form class="form-horizontal form-label-left">
+
+                     <div class="form-group" style="margin-top: 15px">
+                        <label class="control-label col-md-6 col-sm-6 col-xs-12" style="margin-left: 16%"><font style="font-size: 20px">当前登录用户 ： </font><font style="color: rgb(0,0,0);font-size: 22px"> Demo</font></label>
+                      </div>
+                      <div class="form-group" style="margin-top: 15px">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <input type="password" class="form-control" placeholder ="输入密码以解锁">
+                        </div>
+                      </div>
+                      
+                    </form>
+                  </div>
+              </div>
+            <div class="modal-footer"> 
+                <button type="button" class="btn btn-primary" style="width: 40%;margin-right: 30%">确认</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+
+
+
+                <li role="presentation" class="dropdown">
+                  <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="badge bg-red">2</span>
+                  </a>
+                  <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/nav_img.png" alt="Profile Image" /></span>
+                        <span>
+                          <span>铁西</span>
+                          <span class="time">1 分钟前</span>
+                        </span>
+                        <span class="message">
+                          临时停电通知
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="image"><img src="images/nav_img.png" alt="Profile Image" /></span>
+                        <span>
+                          <span>开发区</span>
+                          <span class="time">3 分钟前</span>
+                        </span>
+                        <span class="message">
+                          临时停电通知
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <div class="text-center">
+                        <a>
+                          <strong>查看全部</strong>
+                          <i class="fa fa-angle-right"></i>
+                        </a>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+        
+        <!-- page content -->
+        <div class="right_col" role="main">
+
+           <div class="row x_title">
+                  <div class="col-md-6">
+                    <h3 style="font-size: 23px;letter-spacing:2px">今日停电信息<small> &nbsp&nbsp2018年5月29日</small></h3>
+                  </div>
+           </div>
+
+
+          <!-- top tiles -->
+          <div class="row tile_count" style="height:25px;">
+
+
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-pencil"></i> &nbsp计划停电</span>
+              <div class="count" style="text-align: center; color: rgb(23,160,94);">25</div>
+              <span class="count_bottom">占本周计划总数 <i class='green'>15%</i></span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-clock-o"></i> &nbsp临时停电</span>
+              <div class="count" style="text-align: center;color: rgb(155,89,182);">17</div>
+              <span class="count_bottom">较上周同比变化 <i class="green"><i class="fa fa-sort-asc"></i>3% </i></span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> &nbsp电网故障停限电</span>
+              <div class="count" style="text-align: center; color:rgb(254,1,1);">175</div>
+              <span class="count_bottom">较上周同比变化 <i class="red"><i class="fa fa-sort-desc"></i>12% </i></span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top" ><i class="fa fa-user"></i> &nbsp超电网供电能力停限电</span>
+              <div class="count" style="text-align: center;color: rgb(255,165,0);">2</div>
+              <span class="count_bottom">较上周同比变化 <i class="red"><i class="fa fa-sort-desc"></i>12% </i></span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> &nbsp有序用电</span>
+              <div class="count" style="text-align: center; color: rgb(0,133,195);">2,315</div>
+              <span class="count_bottom">较上周同比变化 <i class="green"><i class="fa fa-sort-asc"></i>34% </i></span>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> &nbsp今日总停电数</span>
+              <div class="count" style="font-size: 50px;margin-top: 6px; color: rgb(155,135,156);">2,534</div>
+            
+
+            </div>
+          </div>
+          <!-- /top tiles -->
+
+
+              <div class="col-md-4 col-sm-4 col-xs-12" style="margin-top: 10px">
+              <div class="x_panel tile fixed_height_320 overflow_hidden">
+                <div class="x_title">
+                  <h2>停电类型统计</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <table class="" style="width:100%">
+                    <tr>
+                      <th style="width:37%;">
+                        
+                      </th>
+                      <th>
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                          <p class="">停电类型</p>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                          <p class="" style="text-align: center;"> &nbsp&nbsp&nbsp类型占比</p>
+                        </div>
+                      </th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <canvas class="canvasDoughnut" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
+                      </td>
+                      <td>
+                        <table class="tile_info">
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square blue"></i>计划停电 </p>
+                            </td>
+                            <td>20%</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square green"></i>临时停电 </p>
+                            </td>
+                            <td>10%</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square purple"></i>电网故障停限电 </p>
+                            </td>
+                            <td>20%</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square aero"></i>超电网供电能力停限电 </p>
+                            </td>
+                            <td>15%</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square red"></i>有序用电 </p>
+                            </td>
+                            <td>30%</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4 col-xs-12" style="margin-top: 10px">
+              <div class="x_panel tile fixed_height_320 overflow_hidden">
+                <div class="x_title">
+                  <h2>停电范围统计</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <table class="" style="width:100%">
+                    <tr>
+                      <th style="width:37%;">
+                        
+                      </th>
+                      <th>
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                          <p class="">停电类型</p>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                          <p class="" style="text-align: center;"> &nbsp&nbsp&nbsp类型占比</p>
+                        </div>
+                      </th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <canvas class="PowerOutageRange" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
+                      </td>
+                      <td>
+                        <table class="tile_info">
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square blue"></i>变电站出口停电 </p>
+                            </td>
+                            <td>20%</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square green"></i>主干线停电 </p>
+                            </td>
+                            <td>10%</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square purple"></i>分支线停电 </p>
+                            </td>
+                            <td>20%</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square aero"></i>公变台区停电 </p>
+                            </td>
+                            <td>15%</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square red"></i>专变用户停电 </p>
+                            </td>
+                            <td>30%</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-4 col-xs-12" style="margin-top: 10px">
+              <div class="x_panel tile fixed_height_320 overflow_hidden">
+                <div class="x_title">
+                  <h2>现场送电类型统计</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <table class="" style="width:100%">
+                    <tr>
+                      <th style="width:37%;">
+                        
+                      </th>
+                      <th>
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                          <p class="">停电类型</p>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                          <p class="" style="text-align: center;"> &nbsp&nbsp&nbsp类型占比</p>
+                        </div>
+                      </th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <canvas class="TypeofPowerSupply" height="140" width="140" style="margin: 15px 10px 10px 0"></canvas>
+                      </td>
+                      <td>
+                        <table class="tile_info">
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square blue"></i>全部 </p>
+                            </td>
+                            <td>20%</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square green"></i>部分 </p>
+                            </td>
+                            <td>10%</td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><i class="fa fa-square purple"></i>未送电 </p>
+                            </td>
+                            <td>20%</td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+
+              <!-- *******************************************************************-->
+
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>今日停电信息报送表</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    
+                    <table id="datatable-buttons" class="table table-striped table-bordered"">
+                      <thead>
+                        <tr>
+                          <th>停电编号</th>
+                          <th>所属供电单位</th>
+                          <th>停电类型</th>
+                          <th>变更类型</th>
+                          <th>现场送电类型</th>
+                          <th>报送状态</th>
+                          <th>停电时间</th>
+                          <th>预计送电时间</th>
+                          
+                        </tr>
+                      </thead>
+                      <tbody> 
+                        <tr>
+                          <td>2018022821000060</td>
+                          <td>国网黑山县供电公司</td>
+                          <td>超电网供电能力停限电</td>
+                          <td>新增</td>
+                          <td>未送电</td>
+                          <td style="color: rgb(254,1,1);">未报送</td>
+                          <td>2018-05-29 09:20:00</td>
+                          <td style="color: rgb(254,1,1);">2018-05-29 10:20:00</td>
+                        </tr>    
+
+                        <tr>
+                          <td>2018022821000090</td>
+                          <td>国网抚顺供电公司</td>
+                          <td>超电网供电能力停限电</td>
+                          <td>现场变更</td>
+                          <td>未送电</td>
+                          <td style="color: rgb(26,193,168);">已报送</td>
+                          <td>2018-05-29 09:20:00</td>
+                          <td>2018-05-29 10:20:00</td>
+                        </tr>                      
+                     </tbody>
+
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+
+
+                
+              <!-- **************************************** -->
+
+          <div class="row">
+            
+          </div>
+          <br />
+
+
+
+
+
+
+
+
+
+
+                <!-- Start to do list -->
+                <!-- End to do list -->
+                
+                <!-- start of weather widget -->
+                <!-- end of weather widget -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            国家电网辽宁公司停电信息报送系统
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="../vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="../vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="../vendors/Flot/jquery.flot.js"></script>
+    <script src="../vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="../vendors/Flot/jquery.flot.time.js"></script>
+    <script src="../vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="../vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="../vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="../vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="../vendors/moment/min/moment.min.js"></script>
+    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.js"></script>
+
+
+
+  <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script> 
+  <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+  <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>       
+  <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+  <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+  <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+  <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+  <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="../vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="../vendors/jszip/dist/jszip.min.js"></script>
+    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+	
+  </body>
+</html>
