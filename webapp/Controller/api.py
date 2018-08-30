@@ -207,5 +207,5 @@ def api_index2():
         "武汉": [114.31, 30.52],
         "大庆": [125.03, 46.58]
     };
-    es.update_option_system_map(city,geoCoordMap[city],type,value)
+    es.update_option_system_map(city,geoCoordMap[city.encode("utf-8")],type,value)
     return redirect(url_for('form_entry_system.index2'))
