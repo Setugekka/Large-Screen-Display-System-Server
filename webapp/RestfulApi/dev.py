@@ -1,3 +1,4 @@
+#encoding:utf-8
 from flask import Blueprint, redirect, render_template, request
 from webapp.socket import EmitService
 es=EmitService()
