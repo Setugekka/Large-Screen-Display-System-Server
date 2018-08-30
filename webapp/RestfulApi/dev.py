@@ -26,5 +26,5 @@ def sm_test():
     city=request.args.get('city')
     value=request.args.get('value')
     cood=[120.62,39]
-    es.update_option_system_map(city,cood,value)
+    es.update_option_system_map(city,cood,'一般事件',value)
     return 'success'

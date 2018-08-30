@@ -14,6 +14,7 @@ def api_index():
 def api_index2():
     city = request.form.get('city')
     value = request.form.get('value')
+    type=request.form.get('type')
     geoCoordMap = {
         "海门": [121.15, 31.89],
         "鄂尔多斯": [109.781327, 39.608266],
@@ -206,5 +207,5 @@ def api_index2():
         "武汉": [114.31, 30.52],
         "大庆": [125.03, 46.58]
     };
-    es.update_option_system_map(city,geoCoordMap[city],value)
+    es.update_option_system_map(city,geoCoordMap[city],type,value)
     return redirect(url_for('form_entry_system.index2'))
