@@ -9,7 +9,7 @@ app = create_app('webapp.config.%sConfig' % env.capitalize())
 # manager启动
 manager = Manager(app)
 manager.add_command("server", Server())
-manager.add_command('run', socketio.run(app=app))
+manager.add_command('run', socketio.run(app=app,host='0.0.0.0'))
 @manager.shell
 def make_shell_context():
     return dict(app=app,db=db)

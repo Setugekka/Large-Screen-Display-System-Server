@@ -96,8 +96,8 @@ class EmitService(object):
     def update_option_public_option_status(self,city,value):
         socketio.emit('update_option_public_option_status',{'name':city, 'value':value},namespace='/LargeScreen')
 
-    def update_option_system_map(self,city,coord,message):
-        socketio.emit('update_option_system_map', {'name': city, 'coord': coord,"value":message}, namespace='/LargeScreen')
+    def update_option_system_map(self,city,coord,type,message):
+        socketio.emit('update_option_system_map', {'name': city, 'coord': coord,"value":message,"type":type}, namespace='/LargeScreen')
 
 
 

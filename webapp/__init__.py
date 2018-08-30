@@ -23,6 +23,7 @@ from RestfulApi.organization import organization_blueprint
 from RestfulApi.institutions import institutions_blueprint
 from RestfulApi.plan import plan_blueprint
 from RestfulApi.training import training_blueprint
+from Controller import form_entry_system
 
 
 def create_app(object_name):
@@ -34,7 +35,9 @@ def create_app(object_name):
     principals.init_app(app)
     socketio.init_app(app)
     #模块注册
+    # 调试模块
     app.register_blueprint(dev_blueprint)
+    #大屏api模块
     app.register_blueprint(p_expert_blueprint)
     app.register_blueprint(p_manager_blueprint)
     app.register_blueprint(p_repair_blueprint)
@@ -50,6 +53,8 @@ def create_app(object_name):
     app.register_blueprint(institutions_blueprint)
     app.register_blueprint(plan_blueprint)
     app.register_blueprint(training_blueprint)
+    #表单录入系统
+    app.register_blueprint(form_entry_system)
     @identity_loaded.connect_via(app)
     def on_identity_loaded(sender, identity):
         identity.user = current_user
