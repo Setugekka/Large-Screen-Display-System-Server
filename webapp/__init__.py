@@ -23,6 +23,7 @@ from RestfulApi.organization import organization_blueprint
 from RestfulApi.institutions import institutions_blueprint
 from RestfulApi.plan import plan_blueprint
 from RestfulApi.training import training_blueprint
+from RestfulApi.report import report_blueprint
 from Controller import form_entry_system
 
 
@@ -53,6 +54,7 @@ def create_app(object_name):
     app.register_blueprint(institutions_blueprint)
     app.register_blueprint(plan_blueprint)
     app.register_blueprint(training_blueprint)
+    app.register_blueprint(report_blueprint)
     #表单录入系统
     app.register_blueprint(form_entry_system)
     @identity_loaded.connect_via(app)
