@@ -20,47 +20,47 @@ def get_list():
         data = {
             'name': '应急领导小组',
     'children': [{
-      'name': '领导1',
+      'name': '安全应急办公室',
       'children': [{
-        'name': '成员1',
+        'name': '测试用户',
         'create': '二珂',
         'selected': 'true',
       }, {
-        'name': '成员2',
+        'name': '项目管理中心',
       }, {
-        'name': '成员3',
+        'name': '电力调试控制中心',
       }, {
-        'name': '成员4',
+        'name': '安全监察质量部',
       }, {
-        'name': '成员5',
+        'name': '办公中心',
       }]
     }, {
-      'name': '领导2',
+      'name': '稳定应急办公室',
       'children': [{
-        'name': '成员1',
+        'name': '运维检修部',
         'create': "二珂",
       }, {
-        'name': '成员2',
+        'name': '农电工作部',
       }, {
-        'name': '成员3',
+        'name': '信息通讯中心',
       }, {
-        'name': '成员4',
+        'name': '物资供应中心',
       }, {
-        'name': '成员5',
+        'name': '综合服务',
       }]
     }, {
-     'name': '领导3',
+     'name': '紧急灾难处理中心',
       'children': [{
-        'name': '成员1',
+        'name': '变电抢修',
         'create': "二珂",
       }, {
-        'name': '成员2',
+        'name': '二次抢修',
       }, {
-        'name': '成员3',
+        'name': '物资调配',
       }, {
-        'name': '成员4',
+        'name': '通讯中心',
       }, {
-        'name': '成员5',
+        'name': '医疗分队',
       }]
     }]
   }
@@ -68,43 +68,54 @@ def get_list():
         data = {
             'name': '安全应急办公室',
             'children': [{
-                'name': '领导1',
+                'name': '项目管理中心',
                 'children': [{
-                    'name': '成员1',
+                    'name': '主要负责人：赵xx',
                     'create': '二珂',
-                    'selected': 'true',
+
                 }, {
-                    'name': '成员2',
+                    'name': '负责人：李xx',
                 }, {
-                    'name': '成员3',
-                }, {
-                    'name': '成员4',
+                    'name': '联络员：王xx',
                 }]
             }, {
-                'name': '领导2',
+                'name': '电力调度控制中心',
                 'children': [{
-                    'name': '成员1',
+                    'name': '带电作业',
                     'create': "二珂",
                 }, {
-                    'name': '成员2',
+                    'name': '电缆运检',
                 }, {
-                    'name': '成员3',
+                    'name': '配电运检',
+                }, {
+                    'name': '变电运检',
+                }, {
+                    'name': '输电运检',
                 }]
             }, {
-                'name': '领导3',
+                'name': '安全监察质量部',
                 'children': [{
-                    'name': '成员1',
+                    'name': '部长：张xx',
                     'create': "二珂",
                 }, {
-                    'name': '成员2',
+                    'name': '副部长：吴xx',
+                }
+                ]
+            }, {
+                'name': '办公中心',
+                'children': [{
+                    'name': '和平客户服务中心',
+                    'create': "二珂",
                 }, {
-                    'name': '成员3',
+                    'name': '沈河客户服务中心',
                 }, {
-                    'name': '成员4',
+                    'name': '大东客户服务中心',
                 }, {
-                    'name': '成员5',
+                    'name': '皇姑客户服务中心',
                 }, {
-                    'name': '成员6',
+                    'name': '铁西客户服务中心',
+                }, {
+                    'name': '浑南客户服务中心',
                     }
                 ]
             }]
@@ -113,43 +124,34 @@ def get_list():
         data = {
             'name': '稳定应急办公室',
             'children': [{
-                'name': '领导1',
+                'name': '运维检修部',
                 'children': [{
-                    'name': '成员1',
+                    'name': 'TBD',
                     'create': '二珂',
-                    'selected': 'true',
-                }, {
-                    'name': '成员2',
-                }, {
-                    'name': '成员3',
-                }, {
-                    'name': '成员4',
                 }]
             }, {
-                'name': '领导2',
+                'name': '农电工作部',
                 'children': [{
-                    'name': '成员1',
+                    'name': 'TBD',
                     'create': "二珂",
-                }, {
-                    'name': '成员2',
-                }, {
-                    'name': '成员3',
-                }, {
-                    'name': '成员4',
                 }]
             }, {
-                'name': '领导3',
+                'name': '信息通讯',
                 'children': [{
-                    'name': '成员1',
+                    'name': 'TBD',
                     'create': "二珂",
-                }, {
-                    'name': '成员2',
-                }, {
-                    'name': '成员3',
-                }, {
-                    'name': '成员4',
-                }, {
-                    'name': '成员5',
+                }]
+            }, {
+                'name': '物资供应',
+                'children': [{
+                    'name': 'TBD',
+                    'create': "二珂",
+                }]
+            }, {
+                'name': '综合服务',
+                'children': [{
+                    'name': 'TBD',
+                    'create': "二珂",
                 }]
             }]
         }
