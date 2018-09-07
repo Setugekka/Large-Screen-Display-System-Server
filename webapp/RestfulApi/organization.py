@@ -22,10 +22,6 @@ def get_list():
     'children': [{
       'name': '安全应急办公室',
       'children': [{
-        'name': '测试用户',
-        'create': '二珂',
-        'selected': 'true',
-      }, {
         'name': '项目管理中心',
       }, {
         'name': '电力调试控制中心',
@@ -66,7 +62,7 @@ def get_list():
   }
     elif group == "安全应急办公室":
         data = {
-            'name': '安全应急办公室',
+            'name': '安全应急 办公室',
             'children': [{
                 'name': '项目管理中心',
                 'children': [{
@@ -122,7 +118,7 @@ def get_list():
         }
     elif group == "稳定应急办公室":
         data = {
-            'name': '稳定应急办公室',
+            'name': '稳定应急 办公室',
             'children': [{
                 'name': '运维检修部',
                 'children': [{

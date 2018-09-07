@@ -15,5 +15,5 @@ plan_blueprint = Blueprint(
 
 @plan_blueprint.route('/get_url',methods=('GET', 'POST'))
 def get_list():
-    url='/assets/pdf/test.pdf'
+    url='/assets/pdf/ws.pdf'
     return response(jsonify(url))
