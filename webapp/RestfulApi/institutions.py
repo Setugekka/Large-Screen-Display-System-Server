@@ -23,7 +23,7 @@ def get_list():
     }, {
         "value": 3,
         "name": "《中华人民共和国安全法》",
-        'url': '/assets/pdf/test.pdf',
+        'url': '/assets/pdf/aqf.pdf',
         'classification': '国家级别'
     }, {
         "value": 2.5,
