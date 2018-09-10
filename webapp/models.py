@@ -155,3 +155,14 @@ class m_urgent_material(db.Model):
     City=db.Column(db.String(255))
 
 
+class city_id (db.Model):
+    Id = db.Column(db.String(11), primary_key=True)
+    Name = db.Column(db.String(255))
+
+
+class plan_list(db.Model):
+    Id = db.Column(db.String(11), primary_key=True)
+    Name = db.Column(db.String(255))
+    Belong_to = db.Column(db.String(11))
+    Level = db.Column(db.String(11))
+
