@@ -58,6 +58,7 @@ def get_all():
             'Unit':"件"
         }],
     }
+    print(data_for_tree)
     return response(jsonify(data_for_tree))
 
 
