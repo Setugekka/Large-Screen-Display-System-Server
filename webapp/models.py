@@ -166,3 +166,28 @@ class plan_list(db.Model):
     Belong_to = db.Column(db.String(11))
     Level = db.Column(db.String(11))
 
+class p_city_manager(db.Model):
+    Id=db.Column(db.String(11), primary_key=True)
+    Name=db.Column(db.String(255))
+    Post=db.Column(db.String(255))
+    Birthday=db.Column(db.String(255))
+    Education=db.Column(db.String(255))
+    Department=db.Column(db.String(255))
+    Major=db.Column(db.String(255))
+    Phone=db.Column(db.String(255))
+    Date_training=db.Column(db.String(255))
+    City=db.Column(db.String(255))
+
+class p_village_manager(db.Model):
+    Id=db.Column(db.String(11), primary_key=True)
+    Name=db.Column(db.String(255))
+    Post=db.Column(db.String(255))
+    Birthday=db.Column(db.String(255))
+    Education=db.Column(db.String(255))
+    Department=db.Column(db.String(255))
+    Major=db.Column(db.String(255))
+    Phone=db.Column(db.String(255))
+    Date_training=db.Column(db.String(255))
+    City=db.Column(db.String(255))
+
+

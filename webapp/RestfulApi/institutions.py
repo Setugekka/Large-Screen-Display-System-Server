@@ -37,22 +37,22 @@ def get_list():
         }]
     else:
         data = [{
-            "value": 2,
+            "value": 1,
             "name": "《国家电网公司应急管理工作规定》",
             'url': '/assets/pdf/test.pdf',
             'classification': '国网公司'
         }, {
-            "value": 2,
+            "value": 1,
             "name": "《国家电网公司应急预案管理办法》",
             'url': '/assets/pdf/test.pdf',
             'classification': '国网公司'
         }, {
-            "value": 2,
+            "value": 1,
             "name": "《国家电网公司应急预案评审及备案管理办法》",
             'url': '/assets/pdf/test.pdf',
             'classification': '国网公司'
         }, {
-            "value": 2,
+            "value": 1 ,
             "name": "《国家电网公司救援基干管理工作规定》",
             'url': '/assets/pdf/test.pdf',
             'classification': '国网公司'
