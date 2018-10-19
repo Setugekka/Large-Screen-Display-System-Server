@@ -1,7 +1,7 @@
 #coding=utf-8
 from flask import Blueprint, jsonify,request
 from . import response
-from webapp.models import m_equipment,db
+from webapp.models import m_equipment,db,m_new_equipment
 m_equipment_blueprint = Blueprint(
     'm_equipment',
     __name__,
@@ -9,7 +9,7 @@ m_equipment_blueprint = Blueprint(
 )
 
 def dataFormatter(rec):
-    return {'Id':rec['Id'],'Type':rec['Type'],'Name':rec['Name'],'Num':rec['Num'],'Model':rec['Model'],'Standard':rec['Standard'],'Unit':rec['Unit'],'City':rec['City']}
+    return {'Id':rec['Id'],'Type':rec['Type'],'Name':rec['Name'],'Num':rec['Num'],'Model':rec['Model'],'Unit':rec['Unit'],'City':rec['City']}
 def trans_result_from_data(i):
     if i.Num:
         data = {
@@ -19,7 +19,6 @@ def trans_result_from_data(i):
             "Unit": i.Unit,
             "Type": i.Type,
             "Model": i.Model,
-            "Standard": i.Standard,
             "City": i.City,
         }
     else:
@@ -30,7 +29,6 @@ def trans_result_from_data(i):
             "Unit": i.Unit,
             "Type": i.Type,
             "Model": i.Model,
-            "Standard": i.Standard,
             "City": i.City,
         }
     return data
@@ -72,6 +70,19 @@ def get_data_by_city(city):
         data = m_equipment.query.all()
     else:
         data = m_equipment.query.filter(m_equipment.City == city).all()
+    result = map(trans_result_from_data, data)
+    result_list = map(dataFormatter,result)
+    print(result)
+    return response(jsonify({'data':result_list}))
+
+@m_equipment_blueprint.route('/get_data_by_city_new/<city>',methods=('GET', 'POST'))
+def get_data_by_city_new(city):
+    print(city)
+    if city == '':
+        city = "all"
+        data = m_new_equipment.query.all()
+    else:
+        data = m_new_equipment.query.filter(m_new_equipment.City == city).all()
     result = map(trans_result_from_data, data)
     result_list = map(dataFormatter,result)
     print(result)

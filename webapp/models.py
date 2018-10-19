@@ -190,4 +190,12 @@ class p_village_manager(db.Model):
     Date_training=db.Column(db.String(255))
     City=db.Column(db.String(255))
 
+class m_new_equipment(db.Model):
+    Id=db.Column(db.String(11), primary_key=True)
+    Name=db.Column(db.String(255))
+    Num=db.Column(db.Numeric)
+    Unit=db.Column(db.String(255))
+    Type=db.Column(db.String(255))
+    Model=db.Column(db.String(255))
+    City=db.Column(db.String(255))
 
