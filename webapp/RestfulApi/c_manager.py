@@ -51,3 +51,13 @@ def get_data_by_city(city):
         data = p_city_manager.query.filter(p_city_manager.City == city).all()
     result_list = map(dataFormatter,data)
     return response(jsonify({'data':result_list}))
+
+@c_manager_blueprint.route('/get_data_by_edu/<city>/<edu>',methods=('GET', 'POST'))
+def get_data_by_edu(city,edu):
+    if city == 'null':
+        city = "all"
+        data = p_city_manager.query.filter(p_city_manager.Education == edu).all()
+    else:
+        data = p_city_manager.query.filter(p_city_manager.City == city,p_city_manager.Education == edu).all()
+    result_list = map(dataFormatter,data)
+    return response(jsonify({'data':result_list}))
