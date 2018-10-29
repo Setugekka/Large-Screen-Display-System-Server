@@ -99,6 +99,10 @@ class EmitService(object):
     def update_option_system_map(self,city,coord,type,message):
         socketio.emit('update_option_system_map', {'name': city, 'coord': coord,"value":message,"type":type}, namespace='/LargeScreen')
 
+    def update_prevention(self,city,coord,p_type,p_class):
+        socketio.emit('update_prevention', {'city': city, 'coord': coord, "p_type": p_type, "p_class": p_class},
+                      namespace='/LargeScreen')
+
 
 
 socketio.on_namespace(MyNamespace('/test'))

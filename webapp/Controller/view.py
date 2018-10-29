@@ -8,3 +8,7 @@ def index():
 @form_entry_system.route('index2')
 def index2():
     return render_template('system/index2.html')
+
+@form_entry_system.route('prevention')
+def prevention():
+    return render_template('system/prevention.html')

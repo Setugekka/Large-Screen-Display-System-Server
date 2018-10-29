@@ -1,6 +1,6 @@
 #encoding:utf-8
 from . import form_entry_system
-from flask import request,redirect,url_for
+from flask import request,redirect,url_for,jsonify
 from webapp.socket import EmitService
 es=EmitService()
 @form_entry_system.route('api_index',methods=['POST','GET'])
@@ -213,3 +213,41 @@ def api_index2():
     };
     es.update_option_system_map(city,geoCoordMap[city.encode("utf-8")],type,value)
     return redirect(url_for('form_entry_system.index2'))
+
+@form_entry_system.route('api_prevention',methods=['POST','GET'])
+def api_prevention():
+    city = request.values.get('city')
+    type=request.values.get('type')
+    p_class = request.values.get('class')
+    geoCoordMap = {
+        '大连': [121.618622,
+          38.92459],
+        '锦州': [121.235858,
+          41.229296],
+        '葫芦岛': [120.356394,
+          40.565572],
+        '丹东': [124.35445,
+          40.510787],
+        '抚顺': [124.521109,
+          41.785956],
+        '沈阳': [123.229096,
+          41.806767],
+        '辽阳': [123.236974,
+          41.277794],
+        '铁岭': [124.126035,
+          42.533828],
+        '鞍山': [122.895632,
+          40.820626],
+        '盘锦': [122.06957,
+          41.134484],
+        '朝阳': [120.451176,
+          41.586758],
+        '营口': [122.535151,
+          40.377432],
+        '阜新': [121.648962,
+          42.021796],
+        '本溪': [123.970519,
+          41.307909],
+    }
+    es.update_prevention(city,geoCoordMap[city.encode("utf-8")],type,p_class)
+    return jsonify({"message": "success"})
