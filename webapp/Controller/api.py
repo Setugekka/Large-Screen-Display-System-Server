@@ -2,6 +2,7 @@
 from . import form_entry_system
 from flask import request,redirect,url_for,jsonify
 from webapp.socket import EmitService
+from .lib import rain_data
 es=EmitService()
 @form_entry_system.route('api_index',methods=['POST','GET'])
 def api_index():
@@ -231,7 +232,7 @@ def api_prevention():
         '抚顺': [124.521109,
           41.785956],
         '沈阳': [123.229096,
-          41.806767],
+          41.796767],
         '辽阳': [123.236974,
           41.277794],
         '铁岭': [124.126035,
