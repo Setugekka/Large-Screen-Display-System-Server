@@ -27,6 +27,7 @@ from RestfulApi.report import report_blueprint
 from RestfulApi.city_list import city_blueprint
 from RestfulApi.c_manager import c_manager_blueprint
 from RestfulApi.v_manager import v_manager_blueprint
+from RestfulApi.weather_data import weather_data_blueprint
 from Controller import form_entry_system
 
 
@@ -61,6 +62,8 @@ def create_app(object_name):
     app.register_blueprint(city_blueprint)
     app.register_blueprint(c_manager_blueprint)
     app.register_blueprint(v_manager_blueprint)
+    app.register_blueprint(weather_data_blueprint)
+
     #表单录入系统
     app.register_blueprint(form_entry_system)
     @identity_loaded.connect_via(app)
