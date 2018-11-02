@@ -2,7 +2,6 @@
 from . import form_entry_system
 from flask import request,redirect,url_for,jsonify
 from webapp.socket import EmitService
-from .lib import rain_data
 es=EmitService()
 @form_entry_system.route('api_index',methods=['POST','GET'])
 def api_index():
@@ -251,4 +250,4 @@ def api_prevention():
           41.307909],
     }
     es.update_prevention(city,geoCoordMap[city.encode("utf-8")],type,p_class)
-    return jsonify({"message": "success"})
+    return redirect(url_for("form_entry_system.prevention"))
