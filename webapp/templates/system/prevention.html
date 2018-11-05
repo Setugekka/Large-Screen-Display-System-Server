@@ -288,7 +288,81 @@
                     测试预警表单
                 </div>
                 <div class="x_content">
-                    <button id="test">开始发送预警信息</button>
+
+  <form class="form-horizontal" method="post" action="{{ url_for('form_entry_system.api_prevention') }}">
+    <fieldset>
+      <div id="legend" class="">
+        <legend class="">预警填报</legend>
+      </div>
+
+
+
+
+
+
+    <div class="control-group">
+
+          <!-- Select Basic -->
+          <label class="control-label">城市</label>
+          <div class="controls">
+            <select class="input-xlarge" name="city">
+      <option>大连</option>
+      <option>锦州</option>
+      <option>葫芦岛</option>
+      <option>丹东</option>
+      <option>抚顺</option>
+      <option>沈阳</option>
+      <option>辽阳</option>
+      <option>铁岭</option>
+      <option>鞍山</option>
+      <option>盘锦</option>
+      <option>朝阳</option>
+      <option>营口</option>
+      <option>阜新</option>
+      <option>本溪</option></select>
+          </div>
+
+        </div><div class="control-group">
+          <label class="control-label">预警类型</label>
+          <div class="controls">
+      <!-- Inline Radios -->
+      <label class="radio inline">
+        <input type="radio" value="true" name="type" checked="checked">
+        发布预警
+      </label>
+      <label class="radio inline">
+        <input type="radio" value="false" name="type">
+        取消预警
+      </label>
+  </div>
+        </div><div class="control-group">
+
+          <!-- Select Basic -->
+          <label class="control-label">预警级别</label>
+          <div class="controls">
+            <select class="input-xlarge" name="class">
+      <option>红色预警</option>
+      <option>橙色预警</option>
+      <option>黄色预警</option>
+      <option>蓝色预警</option></select>
+          </div>
+
+        </div>
+    <div class="control-group">
+          <label class="control-label">提交</label>
+
+          <!-- Button -->
+          <div class="controls">
+            <button class="btn btn-success" type="submit">提交</button>
+          </div>
+        </div>
+
+
+
+
+    </fieldset>
+  </form>
+
                 </div>
             </div>
         </div>
@@ -396,7 +470,7 @@
                 console.log(e)
             }
         })
-        },3000)
+        },8000)
     })
 
 </script>
